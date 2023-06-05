@@ -60,6 +60,37 @@ class DesktopView extends StatelessWidget {
             animation: "midnight",
           ),
         ),
+        Align(
+          alignment: Alignment.topCenter,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(
+                  height: 100,
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  child: const Card(
+                    color: Colors.white,
+                    child: Text(
+                      "DORILLA GAMES",
+                      style: TextStyle(
+                        fontFamily: "FelixTi",
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 100,
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: const Card(
+                    color: Color.fromRGBO(220, 213, 205, 1),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        )
       ],
     );
     //       Image.asset(
