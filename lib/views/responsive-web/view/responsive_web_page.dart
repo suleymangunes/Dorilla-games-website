@@ -11,21 +11,23 @@ class ResponsiveWebPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
-              if (constraints.maxWidth > 1000) {
-                // Büyük ekranlarda farklı bir görünüm
-                return BlocProvider(
-                  create: (context) => PageCubit(),
-                  child: const DesktopView(),
-                );
-              } else {
-                // Mobil cihazlarda farklı bir görünüm
-                return BlocProvider(create: (context) => PageCubit(), child: const MobileView());
-              }
-            },
+      home: SafeArea(
+        child: Scaffold(
+          body: Center(
+            child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+                if (constraints.maxWidth > 650) {
+                  // Büyük ekranlarda farklı bir görünüm
+                  return BlocProvider(
+                    create: (context) => PageCubit(),
+                    child: const DesktopView(),
+                  );
+                } else {
+                  // Mobil cihazlarda farklı bir görünüm
+                  return BlocProvider(create: (context) => PageCubit(), child: const MobileView());
+                }
+              },
+            ),
           ),
         ),
       ),

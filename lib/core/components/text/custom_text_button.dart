@@ -22,7 +22,7 @@ class CustomTextButton extends StatelessWidget {
         padding: context.textButtonPadding,
         child: Text(
           text,
-          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 decoration: TextUnderline().getType(appCubit.state, buttonId),
                 fontFamily: FontEnum.bodoni.rawValue,
               ),

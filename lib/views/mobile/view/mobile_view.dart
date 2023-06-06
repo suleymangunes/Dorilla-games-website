@@ -22,23 +22,26 @@ class MobileView extends StatelessWidget {
           child: FlareActor(FlareEnum.background.rawValue,
               alignment: Alignment.center, fit: BoxFit.cover, animation: FlareKeys.midnight.name),
         ),
-        Align(
-          alignment: Alignment.topCenter,
-          child: SizedBox(
-            height: 70,
-            width: 320,
-            child: Padding(
-              padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.01),
-              child: Card(
-                color: context.backgroundColor,
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    ProjectKeys.appName,
-                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                          fontFamily: FontEnum.felixTi.rawValue,
-                          color: context.titleColor,
-                        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: SizedBox(
+              height: 55,
+              width: 220,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 6),
+                child: Card(
+                  color: context.backgroundColor,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      ProjectKeys.appName,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            fontFamily: FontEnum.felixTi.rawValue,
+                            color: context.titleColor,
+                          ),
+                    ),
                   ),
                 ),
               ),
@@ -51,7 +54,7 @@ class MobileView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.85,
+                height: MediaQuery.of(context).size.height * 0.8,
                 width: MediaQuery.of(context).size.width * 0.95,
                 child: SelectMobilePages.getPages(appCubit.state),
               ),
@@ -95,22 +98,62 @@ class MobileHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appCubit = context.watch<PageCubit>();
     return Column(
       children: [
+        const Spacer(flex: 5),
         SizedBox(
-          height: 300,
+          height: 200,
           child: Image.asset(LogoEnum.logo.rawValue),
         ),
+        const Spacer(flex: 2),
         Card(
           color: context.backgroundColor,
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
             child: Text(
               ProjectKeys.welcomeTitle,
-              style: Theme.of(context).textTheme.headlineSmall,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontFamily: FontEnum.bodoni.rawValue,
+                  ),
             ),
           ),
         ),
+        const Spacer(flex: 1),
+        Card(
+          color: context.backgroundColor,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+            child: Text(
+              ProjectKeys.welcomeContent,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    fontFamily: FontEnum.bodoni.rawValue,
+                  ),
+            ),
+          ),
+        ),
+        const Spacer(flex: 1),
+        ElevatedButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(context.titleColor),
+          ),
+          onPressed: () {
+            appCubit.updateActiveButton(1);
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
+            child: Text(
+              ProjectKeys.getStarted,
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge
+                  ?.copyWith(color: context.backgroundColor, fontFamily: FontEnum.bodoni.rawValue, letterSpacing: 2),
+            ),
+          ),
+        ),
+        const Spacer(flex: 2),
       ],
     );
   }
