@@ -1,8 +1,9 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dorilla_games/core/components/extension/color/color_extension.dart';
 import 'package:dorilla_games/core/components/text/text_head_large_with_font.dart';
 import 'package:dorilla_games/product/enum/flare/flare_enum.dart';
 import 'package:dorilla_games/product/enum/font/font_enum.dart';
-import 'package:dorilla_games/product/enum/logo/logo_enum.dart';
+import 'package:dorilla_games/product/enum/image/image_enum.dart';
 import 'package:dorilla_games/product/locale/project_keys.dart';
 import 'package:dorilla_games/views/_products/widgets/text-button/about_text_button.dart';
 import 'package:dorilla_games/views/_products/widgets/text-button/games_text_button.dart';
@@ -76,7 +77,7 @@ class DesktopView extends StatelessWidget {
                         ),
                       ),
                       const Spacer(
-                        flex: 2,
+                        flex: 1,
                       ),
                     ],
                   ),
@@ -107,11 +108,7 @@ class GetBody {
   const GetBody._();
   static StatelessWidget get({required int bodyPageId}) {
     if (bodyPageId == 1) {
-      return Container(
-        height: 200,
-        width: 200,
-        color: Colors.red,
-      );
+      return const GamesPage();
     } else if (bodyPageId == 2) {
       return Container(
         height: 200,
@@ -124,6 +121,92 @@ class GetBody {
   }
 }
 
+class GamesPage extends StatelessWidget {
+  const GamesPage({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final appCubit = context.watch<PageCubit>();
+    return ListView(
+      children: [
+        Row(
+          children: [
+            const Spacer(flex: 3),
+            SizedBox(
+              height: 600,
+              width: 280,
+              child: CarouselSlider(
+                items: [
+                  SizedBox(width: 240, child: Image.asset(ImageEnum.phone.rawValue)),
+                  SizedBox(width: 240, child: Image.asset(ImageEnum.phone.rawValue)),
+                  SizedBox(width: 240, child: Image.asset(ImageEnum.phone.rawValue)),
+                ],
+                options: CarouselOptions(
+                  autoPlay: true,
+                  viewportFraction: 1,
+                ),
+              ),
+            ),
+            const Spacer(flex: 15),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.5,
+              height: 500,
+              child: Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Column(
+                  children: [
+                    const Spacer(flex: 3),
+                    Card(
+                      color: context.backgroundColor,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+                        child: Text(
+                          "CodeRiddle",
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                                color: context.titleColor,
+                                fontFamily: FontEnum.bodoni.rawValue,
+                                letterSpacing: 0.5,
+                              ),
+                        ),
+                      ),
+                    ),
+                    const Spacer(flex: 1),
+                    Card(
+                      color: context.backgroundColor,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
+                        child: Text(
+                          "Coderiddle: Merge Coding with Puzzles!\nCoderiddle is one of the best ways to learn and practice coding in a fun way. We invite you to a world filled with unique puzzles and challenging questions. Coderiddle is designed for coding enthusiasts of all levels, catering to both beginners and experienced programmers. So, let's embark on an enchanting journey into the world of coding with Coderiddle! Push your boundaries, sharpen your intellect, and join in on the exciting adventure of enhancing your coding skills. Coderiddle awaits you, combining coding with puzzles!",
+                          textAlign: TextAlign.center,
+                          maxLines: 8,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                                // color: const Color.fromRGBO(174, 95, 42, 1),
+                                color: context.titleColor,
+                                fontFamily: FontEnum.bodoni.rawValue,
+                              ),
+                        ),
+                      ),
+                    ),
+                    const Spacer(flex: 1),
+                    SizedBox(width: 150, child: Image.asset(ImageEnum.store.rawValue)),
+                    const Spacer(flex: 4),
+                  ],
+                ),
+              ),
+            ),
+            const Spacer(flex: 2),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
 class HomePageBody extends StatelessWidget {
   const HomePageBody({
     super.key,
@@ -133,12 +216,12 @@ class HomePageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final appCubit = context.watch<PageCubit>();
     return Row(children: [
-      const Spacer(flex: 1),
+      const Spacer(flex: 3),
       SizedBox(
         width: 280,
         child: Padding(
           padding: const EdgeInsets.all(15.0),
-          child: Image.asset(LogoEnum.logo.rawValue),
+          child: Image.asset(ImageEnum.logo.rawValue),
         ),
       ),
       const Spacer(flex: 15),

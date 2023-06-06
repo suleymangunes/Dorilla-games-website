@@ -1,7 +1,7 @@
 import 'package:dorilla_games/core/components/extension/color/color_extension.dart';
 import 'package:dorilla_games/product/enum/flare/flare_enum.dart';
 import 'package:dorilla_games/product/enum/font/font_enum.dart';
-import 'package:dorilla_games/product/enum/logo/logo_enum.dart';
+import 'package:dorilla_games/product/enum/image/image_enum.dart';
 import 'package:dorilla_games/product/locale/project_keys.dart';
 import 'package:dorilla_games/views/desktop/view-model/cubit/page_cubit.dart';
 import 'package:flare_flutter/flare_actor.dart';
@@ -104,7 +104,7 @@ class MobileHomePage extends StatelessWidget {
         const Spacer(flex: 5),
         SizedBox(
           height: 200,
-          child: Image.asset(LogoEnum.logo.rawValue),
+          child: Image.asset(ImageEnum.logo.rawValue),
         ),
         const Spacer(flex: 2),
         Card(
