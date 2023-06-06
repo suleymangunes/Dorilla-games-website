@@ -85,6 +85,11 @@ flutter:
     - family: FelixTi
       fonts:
         - asset: assets/fonts/FELIXTI.TTF
+
+    - family: Bodoni
+      fonts:
+        - asset: assets/fonts/Bodoni.ttf
+
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

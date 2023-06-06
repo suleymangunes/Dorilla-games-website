@@ -23,7 +23,7 @@ class ResponsiveWebPage extends StatelessWidget {
                 );
               } else {
                 // Mobil cihazlarda farklı bir görünüm
-                return const MobileView();
+                return BlocProvider(create: (context) => PageCubit(), child: const MobileView());
               }
             },
           ),

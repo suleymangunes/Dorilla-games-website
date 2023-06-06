@@ -1,11 +1,14 @@
 enum FontEnum {
   felixTi,
+  bodoni,
 }
 
 extension FontName on FontEnum {
   String get rawValue {
     switch (this) {
       case FontEnum.felixTi:
+        return bigFirstLetter(name);
+      case FontEnum.bodoni:
         return bigFirstLetter(name);
     }
   }

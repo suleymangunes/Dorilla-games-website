@@ -1,7 +1,12 @@
 import 'package:dorilla_games/core/components/extension/color/color_extension.dart';
 import 'package:dorilla_games/core/components/text/text_head_large_with_font.dart';
+import 'package:dorilla_games/product/enum/flare/flare_enum.dart';
+import 'package:dorilla_games/product/enum/font/font_enum.dart';
 import 'package:dorilla_games/product/enum/logo/logo_enum.dart';
 import 'package:dorilla_games/product/locale/project_keys.dart';
+import 'package:dorilla_games/views/_products/widgets/text-button/about_text_button.dart';
+import 'package:dorilla_games/views/_products/widgets/text-button/games_text_button.dart';
+import 'package:dorilla_games/views/_products/widgets/text-button/home_text_button.dart';
 import 'package:dorilla_games/views/desktop/view-model/cubit/page_cubit.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
@@ -21,11 +26,11 @@ class DesktopView extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
-                child: const FlareActor(
-                  "assets/animation/background.flr",
+                child: FlareActor(
+                  FlareEnum.background.rawValue,
                   alignment: Alignment.center,
                   fit: BoxFit.cover,
-                  animation: "midnight",
+                  animation: FlareKeys.midnight.name,
                 ),
               ),
               Align(
@@ -43,7 +48,9 @@ class DesktopView extends StatelessWidget {
                         child: Card(
                           color: context.backgroundColor,
                           child: const Align(
-                              alignment: Alignment.center, child: TextDisplaySmallWithFont(text: ProjectKeys.appName)),
+                            alignment: Alignment.center,
+                            child: TextHeadlineLargeWithFont(text: ProjectKeys.appName),
+                          ),
                         ),
                       ),
                       const Spacer(
@@ -51,7 +58,7 @@ class DesktopView extends StatelessWidget {
                       ),
                       SizedBox(
                         height: 80,
-                        width: 530,
+                        width: 430,
                         child: Card(
                           color: context.backgroundColor,
                           child: Row(
@@ -83,78 +90,11 @@ class DesktopView extends StatelessWidget {
                     SizedBox(
                       height: 700,
                       width: MediaQuery.of(context).size.width * 0.95,
-                      child: Row(
-                        children: [
-                          const Spacer(flex: 1),
-                          SizedBox(
-                            width: 360,
-                            height: 600,
-                            child: Card(
-                              color: context.backgroundColor,
-                              child: Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: Image.asset(LogoEnum.logo.rawValue),
-                              ),
-                            ),
-                          ),
-                          const Spacer(flex: 15),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.45,
-                            height: 600,
-                            child: Card(
-                              color: context.backgroundColor,
-                              child: Padding(
-                                padding: const EdgeInsets.all(25.0),
-                                child: Column(
-                                  children: [
-                                    const Spacer(flex: 1),
-                                    Text(
-                                      ProjectKeys.welcomeTitle,
-                                      textAlign: TextAlign.center,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                                            color: context.titleColor,
-                                          ),
-                                    ),
-                                    const Spacer(flex: 3),
-                                    Text(
-                                      ProjectKeys.welcomeContent,
-                                      textAlign: TextAlign.center,
-                                      maxLines: 8,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                            color: context.titleColor,
-                                          ),
-                                    ),
-                                    const Spacer(flex: 6),
-                                    ElevatedButton(
-                                      style: ButtonStyle(
-                                        backgroundColor: MaterialStateProperty.all(context.titleColor),
-                                      ),
-                                      onPressed: () {},
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(12.0),
-                                        child: Text(
-                                          ProjectKeys.getStarted,
-                                          style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                                                color: context.backgroundColor,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                    const Spacer(flex: 3),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                          const Spacer(flex: 2),
-                        ],
-                      ),
+                      child: GetBody.get(bodyPageId: appCubit.state),
                     ),
                   ],
                 ),
-              ),
+              )
             ],
           ),
         ],
@@ -163,80 +103,123 @@ class DesktopView extends StatelessWidget {
   }
 }
 
-class TextUnderline {
-  TextDecoration getType(int state, int mine) {
-    return state == mine ? TextDecoration.underline : TextDecoration.none;
+class GetBody {
+  const GetBody._();
+  static StatelessWidget get({required int bodyPageId}) {
+    if (bodyPageId == 1) {
+      return Container(
+        height: 200,
+        width: 200,
+        color: Colors.red,
+      );
+    } else if (bodyPageId == 2) {
+      return Container(
+        height: 200,
+        width: 200,
+        color: Colors.yellow,
+      );
+    } else {
+      return const HomePageBody();
+    }
   }
 }
 
-class HomeButton extends StatelessWidget {
-  const HomeButton({super.key, required this.appCubit});
-  final PageCubit appCubit;
+class HomePageBody extends StatelessWidget {
+  const HomePageBody({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return CustomTextButton(
-      appCubit: appCubit,
-      text: ProjectKeys.home,
-      buttonId: 0,
-    );
-  }
-}
-
-class GamesButton extends StatelessWidget {
-  const GamesButton({super.key, required this.appCubit});
-  final PageCubit appCubit;
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomTextButton(
-      appCubit: appCubit,
-      text: ProjectKeys.games,
-      buttonId: 1,
-    );
-  }
-}
-
-class AboutUsButton extends StatelessWidget {
-  const AboutUsButton({super.key, required this.appCubit});
-  final PageCubit appCubit;
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomTextButton(
-      appCubit: appCubit,
-      text: ProjectKeys.aboutUs,
-      buttonId: 2,
-    );
-  }
-}
-
-class CustomTextButton extends StatelessWidget {
-  const CustomTextButton({super.key, required this.appCubit, required this.text, required this.buttonId});
-  final PageCubit appCubit;
-  final String text;
-  final int buttonId;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      style: ButtonStyle(
-        overlayColor: MaterialStateProperty.all(context.hoverColor),
-      ),
-      onPressed: () => appCubit.updateActiveButton(buttonId),
-      child: Padding(
-        padding: context.textButtonPadding,
-        child: Text(
-          text,
-          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                decoration: TextUnderline().getType(appCubit.state, buttonId),
-              ),
+    return Row(children: [
+      const Spacer(flex: 1),
+      SizedBox(
+        width: 360,
+        height: 600,
+        child: Card(
+          // color: context.backgroundColor,
+          color: Colors.transparent,
+          elevation: 0,
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Image.asset(LogoEnum.logo.rawValue),
+          ),
         ),
       ),
-    );
+      const Spacer(flex: 15),
+      SizedBox(
+        width: MediaQuery.of(context).size.width * 0.59,
+        height: 600,
+        child: Card(
+          // color: context.backgroundColor,
+          color: Colors.transparent,
+          elevation: 0,
+          child: Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: Column(
+              children: [
+                const Spacer(flex: 1),
+                Card(
+                  color: context.backgroundColor,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20.0),
+                    child: Text(
+                      ProjectKeys.welcomeTitle,
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                            color: context.titleColor, fontFamily: FontEnum.bodoni.rawValue, letterSpacing: 0.5,
+                            // shadows: [
+                            //   const Shadow(
+                            //     color: Colors.white,
+                            //     blurRadius: 1,
+                            //     offset: Offset(1, 1),
+                            //   )
+                            // ],
+                          ),
+                    ),
+                  ),
+                ),
+                const Spacer(flex: 1),
+                Card(
+                  color: context.backgroundColor,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Text(
+                      ProjectKeys.welcomeContent,
+                      textAlign: TextAlign.center,
+                      maxLines: 8,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                            // color: const Color.fromRGBO(174, 95, 42, 1),
+                            color: context.titleColor,
+                            fontFamily: FontEnum.bodoni.rawValue,
+                          ),
+                    ),
+                  ),
+                ),
+                const Spacer(flex: 1),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(context.titleColor),
+                  ),
+                  onPressed: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
+                    child: Text(
+                      ProjectKeys.getStarted,
+                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                          color: context.backgroundColor, fontFamily: FontEnum.bodoni.rawValue, letterSpacing: 2),
+                    ),
+                  ),
+                ),
+                const Spacer(flex: 3),
+              ],
+            ),
+          ),
+        ),
+      ),
+      const Spacer(flex: 2),
+    ]);
   }
-}
-
-extension ProjectPads on BuildContext {
-  EdgeInsets get textButtonPadding => const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20);
 }
