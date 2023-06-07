@@ -225,6 +225,91 @@ class _GamesPageState extends State<GamesPage> {
             const Spacer(flex: 2),
           ],
         ),
+        Row(
+          children: [
+            const Spacer(flex: 3),
+            SizedBox(
+              height: 600,
+              width: 280,
+              child: CarouselSlider(
+                items: [
+                  SizedBox(width: 240, child: Image.asset(ImageEnum.screen.rawValue)),
+                  SizedBox(width: 240, child: Image.asset(ImageEnum.screen.rawValue)),
+                  SizedBox(width: 240, child: Image.asset(ImageEnum.screen.rawValue)),
+                  SizedBox(width: 240, child: Image.asset(ImageEnum.screen.rawValue)),
+                ],
+                options: CarouselOptions(
+                  autoPlay: true,
+                  viewportFraction: 1,
+                ),
+              ),
+            ),
+            const Spacer(flex: 15),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.5,
+              height: 500,
+              child: Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Column(
+                  children: [
+                    const Spacer(flex: 3),
+                    Card(
+                      color: context.backgroundColor,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+                        child: Text(
+                          "CodeRiddle",
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                                color: context.titleColor,
+                                fontFamily: FontEnum.bodoni.rawValue,
+                                letterSpacing: 0.5,
+                              ),
+                        ),
+                      ),
+                    ),
+                    const Spacer(flex: 1),
+                    Card(
+                      color: context.backgroundColor,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
+                        child: Text(
+                          "Coderiddle: Merge Coding with Puzzles!\nCoderiddle is one of the best ways to learn and practice coding in a fun way. We invite you to a world filled with unique puzzles and challenging questions. Coderiddle is designed for coding enthusiasts of all levels, catering to both beginners and experienced programmers. So, let's embark on an enchanting journey into the world of coding with Coderiddle! Push your boundaries, sharpen your intellect, and join in on the exciting adventure of enhancing your coding skills. Coderiddle awaits you, combining coding with puzzles!",
+                          textAlign: TextAlign.center,
+                          maxLines: 9,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                                // color: const Color.fromRGBO(174, 95, 42, 1),
+                                color: context.titleColor,
+                                fontFamily: FontEnum.bodoni.rawValue,
+                              ),
+                        ),
+                      ),
+                    ),
+                    const Spacer(flex: 1),
+                    InkWell(
+                      onTap: () {
+                        UrlLauncher._launchUrl("https://pub.dev/packages/url_launcher");
+                      },
+                      onHover: (value) {
+                        setState(() {
+                          isStoreLogoHover = value;
+                        });
+                      },
+                      child: SizedBox(
+                        width: isStoreLogoHover ? 200 : 150,
+                        child: Image.asset(ImageEnum.store.rawValue),
+                      ),
+                    ),
+                    const Spacer(flex: 4),
+                  ],
+                ),
+              ),
+            ),
+            const Spacer(flex: 2),
+          ],
+        ),
       ],
     );
   }
