@@ -4,7 +4,7 @@ enum SvgEnum {
   github("github"),
   gmail("gmail"),
   linkedin("linkedin"),
-  playStore("play_store"),
+  play("play"),
   web("web"),
   youtube("youtube"),
   ;
