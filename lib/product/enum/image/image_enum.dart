@@ -1,7 +1,7 @@
 enum ImageEnum {
   logo,
   store,
-  phone,
+  screen,
 }
 
 extension LogoPath on ImageEnum {
@@ -11,7 +11,7 @@ extension LogoPath on ImageEnum {
         return "assets/logo/$name.png";
       case ImageEnum.store:
         return "assets/images/$name.png";
-      case ImageEnum.phone:
+      case ImageEnum.screen:
         return "assets/images/$name.png";
     }
   }

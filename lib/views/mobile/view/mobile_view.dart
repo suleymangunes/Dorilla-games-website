@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dorilla_games/core/components/extension/color/color_extension.dart';
 import 'package:dorilla_games/product/enum/flare/flare_enum.dart';
 import 'package:dorilla_games/product/enum/font/font_enum.dart';
@@ -7,6 +8,7 @@ import 'package:dorilla_games/views/desktop/view-model/cubit/page_cubit.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MobileView extends StatelessWidget {
   const MobileView({super.key});
@@ -162,7 +164,7 @@ class MobileHomePage extends StatelessWidget {
 class SelectMobilePages {
   const SelectMobilePages._();
 
-  static StatelessWidget getPages(int pageId) {
+  static Widget getPages(int pageId) {
     if (pageId == 1) {
       return const MobileGamesPage();
     } else if (pageId == 2) {
@@ -173,17 +175,208 @@ class SelectMobilePages {
   }
 }
 
-class MobileGamesPage extends StatelessWidget {
+class MobileGamesPage extends StatefulWidget {
   const MobileGamesPage({
     super.key,
   });
 
   @override
+  State<MobileGamesPage> createState() => _MobileGamesPageState();
+}
+
+class _MobileGamesPageState extends State<MobileGamesPage> {
+  bool isStoreLogoHover = false;
+  @override
   Widget build(BuildContext context) {
-    return const Card(
-      color: Colors.blue,
-      child: Text("hi"),
+    final appCubit = context.watch<PageCubit>();
+    return ListView(
+      physics: const BouncingScrollPhysics(),
+      children: [
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.8,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    height: 350,
+                    width: MediaQuery.of(context).size.width * 0.4,
+                    child: CarouselSlider(
+                      items: [
+                        Image.asset(ImageEnum.screen.rawValue),
+                        // SizedBox(width: 220, child: Image.asset(ImageEnum.screen.rawValue)),
+                        // SizedBox(width: 220, child: Image.asset(ImageEnum.screen.rawValue)),
+                        SizedBox(width: 220, child: Image.asset(ImageEnum.screen.rawValue)),
+                      ],
+                      options: CarouselOptions(
+                        autoPlay: true,
+                        viewportFraction: 1,
+                        aspectRatio: 1.3,
+                      ),
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      Card(
+                        color: context.backgroundColor,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                          child: Text(
+                            "CodeRiddle",
+                            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  fontFamily: FontEnum.bodoni.rawValue,
+                                  color: context.titleColor,
+                                ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        child: Card(
+                          color: context.backgroundColor,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                            child: Text(
+                              "Coderiddle: Merge Coding with Puzzles!\nCoderiddle is one of the best ways to learn and practice coding in a fun way.",
+                              textAlign: TextAlign.center,
+                              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                                    fontFamily: FontEnum.bodoni.rawValue,
+                                    color: context.titleColor,
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          UrlLauncher._launchUrl("https://pub.dev/packages/url_launcher");
+                        },
+                        child: SizedBox(
+                          width: 125,
+                          child: Image.asset(ImageEnum.store.rawValue),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Card(
+                color: context.backgroundColor,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                  child: Text(
+                    "We invite you to a world filled with unique puzzles and challenging questions. Coderiddle is designed for coding enthusiasts of all levels, catering to both beginners and experienced programmers. So, let's embark on an enchanting journey into the world of coding with Coderiddle! Push your boundaries, sharpen your intellect, and join in on the exciting adventure of enhancing your coding skills. Coderiddle awaits you, combining coding with puzzles!",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: context.titleColor,
+                          fontFamily: FontEnum.bodoni.rawValue,
+                        ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.8,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    height: 350,
+                    width: MediaQuery.of(context).size.width * 0.4,
+                    child: CarouselSlider(
+                      items: [
+                        Image.asset(ImageEnum.screen.rawValue),
+                        // SizedBox(width: 220, child: Image.asset(ImageEnum.screen.rawValue)),
+                        // SizedBox(width: 220, child: Image.asset(ImageEnum.screen.rawValue)),
+                        SizedBox(width: 220, child: Image.asset(ImageEnum.screen.rawValue)),
+                      ],
+                      options: CarouselOptions(
+                        autoPlay: true,
+                        viewportFraction: 1,
+                        aspectRatio: 1.3,
+                      ),
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      Card(
+                        color: context.backgroundColor,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                          child: Text(
+                            "CodeRiddle",
+                            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  fontFamily: FontEnum.bodoni.rawValue,
+                                  color: context.titleColor,
+                                ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        child: Card(
+                          color: context.backgroundColor,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                            child: Text(
+                              "Coderiddle: Merge Coding with Puzzles!\nCoderiddle is one of the best ways to learn and practice coding in a fun way.",
+                              textAlign: TextAlign.center,
+                              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                                    fontFamily: FontEnum.bodoni.rawValue,
+                                    color: context.titleColor,
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          UrlLauncher._launchUrl("https://pub.dev/packages/url_launcher");
+                        },
+                        child: SizedBox(
+                          width: 125,
+                          child: Image.asset(ImageEnum.store.rawValue),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Card(
+                color: context.backgroundColor,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                  child: Text(
+                    "We invite you to a world filled with unique puzzles and challenging questions. Coderiddle is designed for coding enthusiasts of all levels, catering to both beginners and experienced programmers. So, let's embark on an enchanting journey into the world of coding with Coderiddle! Push your boundaries, sharpen your intellect, and join in on the exciting adventure of enhancing your coding skills. Coderiddle awaits you, combining coding with puzzles!",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: context.titleColor,
+                          fontFamily: FontEnum.bodoni.rawValue,
+                        ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
     );
+  }
+}
+
+class UrlLauncher {
+  static Future<void> _launchUrl(String getUrl) async {
+    final url = Uri.parse(getUrl);
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+    }
   }
 }
 

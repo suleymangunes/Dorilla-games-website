@@ -12,6 +12,7 @@ import 'package:dorilla_games/views/desktop/view-model/cubit/page_cubit.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DesktopView extends StatelessWidget {
   const DesktopView({super.key});
@@ -106,7 +107,7 @@ class DesktopView extends StatelessWidget {
 
 class GetBody {
   const GetBody._();
-  static StatelessWidget get({required int bodyPageId}) {
+  static Widget get({required int bodyPageId}) {
     if (bodyPageId == 1) {
       return const GamesPage();
     } else if (bodyPageId == 2) {
@@ -121,10 +122,18 @@ class GetBody {
   }
 }
 
-class GamesPage extends StatelessWidget {
+class GamesPage extends StatefulWidget {
   const GamesPage({
     super.key,
   });
+
+  @override
+  State<GamesPage> createState() => _GamesPageState();
+}
+
+class _GamesPageState extends State<GamesPage> {
+  double storeLogoSize = 150;
+  bool isStoreLogoHover = false;
 
   @override
   Widget build(BuildContext context) {
@@ -139,9 +148,10 @@ class GamesPage extends StatelessWidget {
               width: 280,
               child: CarouselSlider(
                 items: [
-                  SizedBox(width: 240, child: Image.asset(ImageEnum.phone.rawValue)),
-                  SizedBox(width: 240, child: Image.asset(ImageEnum.phone.rawValue)),
-                  SizedBox(width: 240, child: Image.asset(ImageEnum.phone.rawValue)),
+                  SizedBox(width: 240, child: Image.asset(ImageEnum.screen.rawValue)),
+                  SizedBox(width: 240, child: Image.asset(ImageEnum.screen.rawValue)),
+                  SizedBox(width: 240, child: Image.asset(ImageEnum.screen.rawValue)),
+                  SizedBox(width: 240, child: Image.asset(ImageEnum.screen.rawValue)),
                 ],
                 options: CarouselOptions(
                   autoPlay: true,
@@ -182,7 +192,7 @@ class GamesPage extends StatelessWidget {
                         child: Text(
                           "Coderiddle: Merge Coding with Puzzles!\nCoderiddle is one of the best ways to learn and practice coding in a fun way. We invite you to a world filled with unique puzzles and challenging questions. Coderiddle is designed for coding enthusiasts of all levels, catering to both beginners and experienced programmers. So, let's embark on an enchanting journey into the world of coding with Coderiddle! Push your boundaries, sharpen your intellect, and join in on the exciting adventure of enhancing your coding skills. Coderiddle awaits you, combining coding with puzzles!",
                           textAlign: TextAlign.center,
-                          maxLines: 8,
+                          maxLines: 9,
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                                 // color: const Color.fromRGBO(174, 95, 42, 1),
@@ -193,7 +203,20 @@ class GamesPage extends StatelessWidget {
                       ),
                     ),
                     const Spacer(flex: 1),
-                    SizedBox(width: 150, child: Image.asset(ImageEnum.store.rawValue)),
+                    InkWell(
+                      onTap: () {
+                        UrlLauncher._launchUrl("https://pub.dev/packages/url_launcher");
+                      },
+                      onHover: (value) {
+                        setState(() {
+                          isStoreLogoHover = value;
+                        });
+                      },
+                      child: SizedBox(
+                        width: isStoreLogoHover ? 200 : 150,
+                        child: Image.asset(ImageEnum.store.rawValue),
+                      ),
+                    ),
                     const Spacer(flex: 4),
                   ],
                 ),
@@ -204,6 +227,15 @@ class GamesPage extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class UrlLauncher {
+  static Future<void> _launchUrl(String getUrl) async {
+    final url = Uri.parse(getUrl);
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+    }
   }
 }
 
