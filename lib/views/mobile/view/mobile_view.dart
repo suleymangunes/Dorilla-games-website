@@ -7,6 +7,7 @@ import 'package:dorilla_games/product/enum/image/image_enum.dart';
 import 'package:dorilla_games/product/locale/project_keys.dart';
 import 'package:dorilla_games/views/desktop/view-model/cubit/page_cubit.dart';
 import 'package:dorilla_games/views/mobile/about-us/view/mobile_about_us_page.dart';
+import 'package:dorilla_games/views/mobile/home/mobile_home_page.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -89,74 +90,6 @@ class MobileView extends StatelessWidget {
             ],
           ),
         )
-      ],
-    );
-  }
-}
-
-class MobileHomePage extends StatelessWidget {
-  const MobileHomePage({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final appCubit = context.watch<PageCubit>();
-    return Column(
-      children: [
-        const Spacer(flex: 5),
-        SizedBox(
-          height: 200,
-          child: Image.asset(ImageEnum.logo.rawValue),
-        ),
-        const Spacer(flex: 2),
-        Card(
-          color: context.pampas,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
-            child: Text(
-              ProjectKeys.welcomeTitle,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontFamily: FontEnum.bodoni.rawValue,
-                  ),
-            ),
-          ),
-        ),
-        const Spacer(flex: 1),
-        Card(
-          color: context.pampas,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-            child: Text(
-              ProjectKeys.welcomeContent,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    fontFamily: FontEnum.bodoni.rawValue,
-                  ),
-            ),
-          ),
-        ),
-        const Spacer(flex: 1),
-        ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(context.cocoaBean),
-          ),
-          onPressed: () {
-            appCubit.updateActiveButton(1);
-          },
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
-            child: Text(
-              ProjectKeys.getStarted,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge
-                  ?.copyWith(color: context.pampas, fontFamily: FontEnum.bodoni.rawValue, letterSpacing: 2),
-            ),
-          ),
-        ),
-        const Spacer(flex: 2),
       ],
     );
   }

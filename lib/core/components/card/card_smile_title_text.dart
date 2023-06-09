@@ -1,10 +1,10 @@
-import 'package:dorilla_games/core/components/text/bodoni/medium_title_text_cocabean_bodoni.dart';
+import 'package:dorilla_games/core/components/text/bodoni/small_title_text_cocoabean_bodoni.dart';
 import 'package:dorilla_games/core/extension/color/color_extension.dart';
 import 'package:dorilla_games/core/extension/padding/project_pads.dart';
 import 'package:flutter/material.dart';
 
-class TitleMediumCard extends StatelessWidget {
-  const TitleMediumCard({super.key, required this.text, this.textAlign});
+class CardSmallTitleText extends StatelessWidget {
+  const CardSmallTitleText({super.key, required this.text, this.textAlign});
   final String text;
   final TextAlign? textAlign;
 
@@ -14,7 +14,7 @@ class TitleMediumCard extends StatelessWidget {
       color: context.pampas,
       child: Padding(
         padding: context.smallTextPad,
-        child: MediumTitleTextCocoaBeanBodoni(
+        child: SmallTitleTextCocoaBeanBodoni(
           text: text,
           textAlign: textAlign,
         ),
