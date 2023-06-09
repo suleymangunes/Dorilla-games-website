@@ -1,5 +1,5 @@
-import 'package:dorilla_games/core/components/extension/color/color_extension.dart';
-import 'package:dorilla_games/core/components/extension/padding/project_pads.dart';
+import 'package:dorilla_games/core/extension/color/color_extension.dart';
+import 'package:dorilla_games/core/extension/padding/project_pads.dart';
 import 'package:dorilla_games/product/enum/font/font_enum.dart';
 import 'package:dorilla_games/views/desktop/view-model/cubit/page_cubit.dart';
 import 'package:dorilla_games/views/desktop/view-model/underline/text_underline.dart';
@@ -15,7 +15,7 @@ class CustomTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: ButtonStyle(
-        overlayColor: MaterialStateProperty.all(context.hoverColor),
+        overlayColor: MaterialStateProperty.all(context.pippin),
       ),
       onPressed: () => appCubit.updateActiveButton(buttonId),
       child: Padding(

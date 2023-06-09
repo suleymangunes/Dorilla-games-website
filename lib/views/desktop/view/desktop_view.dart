@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dorilla_games/core/components/extension/color/color_extension.dart';
+import 'package:dorilla_games/core/extension/color/color_extension.dart';
 import 'package:dorilla_games/core/components/text/text_head_large_with_font.dart';
 import 'package:dorilla_games/product/enum/flare/flare_enum.dart';
 import 'package:dorilla_games/product/enum/font/font_enum.dart';
@@ -50,7 +50,7 @@ class DesktopView extends StatelessWidget {
                         height: 55,
                         width: 280,
                         child: Card(
-                          color: context.backgroundColor,
+                          color: context.pampas,
                           child: const Align(
                             alignment: Alignment.center,
                             child: TextHeadlineSmallWithFont(text: ProjectKeys.appName),
@@ -64,7 +64,7 @@ class DesktopView extends StatelessWidget {
                         height: 55,
                         width: 300,
                         child: Card(
-                          color: context.backgroundColor,
+                          color: context.pampas,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -149,21 +149,21 @@ class _AboutUsPageState extends State<AboutUsPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Card(
-                    color: context.backgroundColor,
+                    color: context.pampas,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                       child: Text(
                         ProjectKeys.aboutUs,
                         style: Theme.of(context).textTheme.titleLarge?.copyWith(
                               fontFamily: FontEnum.bodoni.rawValue,
-                              color: context.titleColor,
+                              color: context.cocoaBean,
                               fontWeight: FontWeight.bold,
                             ),
                       ),
                     ),
                   ),
                   Card(
-                    color: context.backgroundColor,
+                    color: context.pampas,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                       child: Text(
@@ -172,21 +172,21 @@ class _AboutUsPageState extends State<AboutUsPage> {
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.titleMedium?.copyWith(
                               fontFamily: FontEnum.bodoni.rawValue,
-                              color: context.titleColor,
+                              color: context.cocoaBean,
                             ),
                       ),
                     ),
                   ),
                   const Spacer(flex: 1),
                   Card(
-                    color: context.backgroundColor,
+                    color: context.pampas,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                       child: Text(
                         ProjectKeys.stayConnected,
                         style: Theme.of(context).textTheme.titleLarge?.copyWith(
                               fontFamily: FontEnum.bodoni.rawValue,
-                              color: context.titleColor,
+                              color: context.cocoaBean,
                               fontWeight: FontWeight.bold,
                             ),
                       ),
@@ -195,7 +195,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
                   InkWell(
                     onTap: () {},
                     child: Card(
-                      color: context.backgroundColor,
+                      color: context.pampas,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                         child: Row(
@@ -212,7 +212,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
                                 ProjectKeys.gmail,
                                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                                       fontFamily: FontEnum.bodoni.rawValue,
-                                      color: context.titleColor,
+                                      color: context.cocoaBean,
                                     ),
                               ),
                             ),
@@ -276,14 +276,14 @@ class _AboutUsPageState extends State<AboutUsPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Card(
-                    color: context.backgroundColor,
+                    color: context.pampas,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                       child: Text(
                         ProjectKeys.contactMe,
                         style: Theme.of(context).textTheme.titleLarge?.copyWith(
                               fontFamily: FontEnum.bodoni.rawValue,
-                              color: context.titleColor,
+                              color: context.cocoaBean,
                               // fontWeight: FontWeight.bold,
                             ),
                       ),
@@ -296,18 +296,18 @@ class _AboutUsPageState extends State<AboutUsPage> {
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.15,
                           child: TextFormField(
-                            cursorColor: context.titleColor,
+                            cursorColor: context.cocoaBean,
                             decoration: InputDecoration(
                               hintText: ProjectKeys.name,
                               hintStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                    color: context.titleColor,
+                                    color: context.cocoaBean,
                                     fontFamily: FontEnum.bodoni.rawValue,
                                   ),
                               border: const OutlineInputBorder(),
                               filled: true,
-                              fillColor: context.backgroundColor,
+                              fillColor: context.pampas,
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: context.titleColor),
+                                borderSide: BorderSide(color: context.cocoaBean),
                               ),
                             ),
                           ),
@@ -318,18 +318,18 @@ class _AboutUsPageState extends State<AboutUsPage> {
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.2,
                           child: TextFormField(
-                            cursorColor: context.titleColor,
+                            cursorColor: context.cocoaBean,
                             decoration: InputDecoration(
                               hintText: ProjectKeys.email,
                               hintStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                    color: context.titleColor,
+                                    color: context.cocoaBean,
                                     fontFamily: FontEnum.bodoni.rawValue,
                                   ),
                               border: const OutlineInputBorder(),
                               filled: true,
-                              fillColor: context.backgroundColor,
+                              fillColor: context.pampas,
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: context.titleColor),
+                                borderSide: BorderSide(color: context.cocoaBean),
                               ),
                             ),
                           ),
@@ -353,7 +353,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
                         child: Column(
                           children: [
                             Card(
-                              color: isSelectedWeb ? context.backgroundColor : Colors.transparent,
+                              color: isSelectedWeb ? context.pampas : Colors.transparent,
                               elevation: 0,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50),
@@ -368,13 +368,13 @@ class _AboutUsPageState extends State<AboutUsPage> {
                               ),
                             ),
                             Card(
-                              color: context.backgroundColor,
+                              color: context.pampas,
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 3),
                                 child: Text(
                                   ProjectKeys.web,
                                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                                        color: context.titleColor,
+                                        color: context.cocoaBean,
                                         fontFamily: FontEnum.bodoni.rawValue,
                                       ),
                                 ),
@@ -392,7 +392,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
                         child: Column(
                           children: [
                             Card(
-                              color: isSelectedApp ? context.backgroundColor : Colors.transparent,
+                              color: isSelectedApp ? context.pampas : Colors.transparent,
                               elevation: 0,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50),
@@ -407,13 +407,13 @@ class _AboutUsPageState extends State<AboutUsPage> {
                               ),
                             ),
                             Card(
-                              color: context.backgroundColor,
+                              color: context.pampas,
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 3),
                                 child: Text(
                                   ProjectKeys.app,
                                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                                        color: context.titleColor,
+                                        color: context.cocoaBean,
                                         fontFamily: FontEnum.bodoni.rawValue,
                                       ),
                                 ),
@@ -431,7 +431,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
                         child: Column(
                           children: [
                             Card(
-                              color: isSelectedGame ? context.backgroundColor : Colors.transparent,
+                              color: isSelectedGame ? context.pampas : Colors.transparent,
                               elevation: 0,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50),
@@ -446,13 +446,13 @@ class _AboutUsPageState extends State<AboutUsPage> {
                               ),
                             ),
                             Card(
-                              color: context.backgroundColor,
+                              color: context.pampas,
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 3),
                                 child: Text(
                                   ProjectKeys.game,
                                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                                        color: context.titleColor,
+                                        color: context.cocoaBean,
                                         fontFamily: FontEnum.bodoni.rawValue,
                                       ),
                                 ),
@@ -471,18 +471,18 @@ class _AboutUsPageState extends State<AboutUsPage> {
                     child: TextFormField(
                       minLines: 4,
                       maxLines: 4,
-                      cursorColor: context.titleColor,
+                      cursorColor: context.cocoaBean,
                       decoration: InputDecoration(
                         hintText: ProjectKeys.tellMe,
                         hintStyle: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              color: context.titleColor,
+                              color: context.cocoaBean,
                               fontFamily: FontEnum.bodoni.rawValue,
                             ),
                         border: const OutlineInputBorder(),
                         filled: true,
-                        fillColor: context.backgroundColor,
+                        fillColor: context.pampas,
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: context.titleColor),
+                          borderSide: BorderSide(color: context.cocoaBean),
                         ),
                       ),
                     ),
@@ -494,15 +494,17 @@ class _AboutUsPageState extends State<AboutUsPage> {
                     alignment: Alignment.centerRight,
                     child: ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(context.titleColor),
+                        backgroundColor: MaterialStateProperty.all(context.cocoaBean),
                       ),
                       onPressed: () {},
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
                         child: Text(
                           ProjectKeys.send,
-                          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                              color: context.backgroundColor, fontFamily: FontEnum.bodoni.rawValue, letterSpacing: 2),
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleLarge
+                              ?.copyWith(color: context.pampas, fontFamily: FontEnum.bodoni.rawValue, letterSpacing: 2),
                         ),
                       ),
                     ),
@@ -565,7 +567,7 @@ class _GamesPageState extends State<GamesPage> {
                   children: [
                     const Spacer(flex: 3),
                     Card(
-                      color: context.backgroundColor,
+                      color: context.pampas,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
                         child: Text(
@@ -573,7 +575,7 @@ class _GamesPageState extends State<GamesPage> {
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                                color: context.titleColor,
+                                color: context.cocoaBean,
                                 fontFamily: FontEnum.bodoni.rawValue,
                                 letterSpacing: 0.5,
                               ),
@@ -582,7 +584,7 @@ class _GamesPageState extends State<GamesPage> {
                     ),
                     const Spacer(flex: 1),
                     Card(
-                      color: context.backgroundColor,
+                      color: context.pampas,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
                         child: Text(
@@ -592,7 +594,7 @@ class _GamesPageState extends State<GamesPage> {
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                                 // color: const Color.fromRGBO(174, 95, 42, 1),
-                                color: context.titleColor,
+                                color: context.cocoaBean,
                                 fontFamily: FontEnum.bodoni.rawValue,
                               ),
                         ),
@@ -650,7 +652,7 @@ class _GamesPageState extends State<GamesPage> {
                   children: [
                     const Spacer(flex: 3),
                     Card(
-                      color: context.backgroundColor,
+                      color: context.pampas,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
                         child: Text(
@@ -658,7 +660,7 @@ class _GamesPageState extends State<GamesPage> {
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                                color: context.titleColor,
+                                color: context.cocoaBean,
                                 fontFamily: FontEnum.bodoni.rawValue,
                                 letterSpacing: 0.5,
                               ),
@@ -667,7 +669,7 @@ class _GamesPageState extends State<GamesPage> {
                     ),
                     const Spacer(flex: 1),
                     Card(
-                      color: context.backgroundColor,
+                      color: context.pampas,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
                         child: Text(
@@ -677,7 +679,7 @@ class _GamesPageState extends State<GamesPage> {
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                                 // color: const Color.fromRGBO(174, 95, 42, 1),
-                                color: context.titleColor,
+                                color: context.cocoaBean,
                                 fontFamily: FontEnum.bodoni.rawValue,
                               ),
                         ),
@@ -747,7 +749,7 @@ class HomePageBody extends StatelessWidget {
             children: [
               const Spacer(flex: 3),
               Card(
-                color: context.backgroundColor,
+                color: context.pampas,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
                   child: Text(
@@ -755,7 +757,7 @@ class HomePageBody extends StatelessWidget {
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                          color: context.titleColor,
+                          color: context.cocoaBean,
                           fontFamily: FontEnum.bodoni.rawValue,
                           letterSpacing: 0.5,
                         ),
@@ -764,7 +766,7 @@ class HomePageBody extends StatelessWidget {
               ),
               const Spacer(flex: 1),
               Card(
-                color: context.backgroundColor,
+                color: context.pampas,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
                   child: Text(
@@ -774,7 +776,7 @@ class HomePageBody extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           // color: const Color.fromRGBO(174, 95, 42, 1),
-                          color: context.titleColor,
+                          color: context.cocoaBean,
                           fontFamily: FontEnum.bodoni.rawValue,
                         ),
                   ),
@@ -783,7 +785,7 @@ class HomePageBody extends StatelessWidget {
               const Spacer(flex: 1),
               ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(context.titleColor),
+                  backgroundColor: MaterialStateProperty.all(context.cocoaBean),
                 ),
                 onPressed: () {
                   appCubit.updateActiveButton(1);
@@ -792,8 +794,10 @@ class HomePageBody extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
                   child: Text(
                     ProjectKeys.getStarted,
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        color: context.backgroundColor, fontFamily: FontEnum.bodoni.rawValue, letterSpacing: 2),
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge
+                        ?.copyWith(color: context.pampas, fontFamily: FontEnum.bodoni.rawValue, letterSpacing: 2),
                   ),
                 ),
               ),

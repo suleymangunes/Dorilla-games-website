@@ -1,14 +1,15 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dorilla_games/core/components/extension/color/color_extension.dart';
+import 'package:dorilla_games/core/extension/color/color_extension.dart';
+import 'package:dorilla_games/core/service/url/url_launcher_singleton.dart';
 import 'package:dorilla_games/product/enum/flare/flare_enum.dart';
 import 'package:dorilla_games/product/enum/font/font_enum.dart';
 import 'package:dorilla_games/product/enum/image/image_enum.dart';
 import 'package:dorilla_games/product/locale/project_keys.dart';
 import 'package:dorilla_games/views/desktop/view-model/cubit/page_cubit.dart';
+import 'package:dorilla_games/views/mobile/about-us/view/mobile_about_us_page.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class MobileView extends StatelessWidget {
   const MobileView({super.key});
@@ -34,14 +35,14 @@ class MobileView extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 6),
                 child: Card(
-                  color: context.backgroundColor,
+                  color: context.pampas,
                   child: Align(
                     alignment: Alignment.center,
                     child: Text(
                       ProjectKeys.appName,
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                             fontFamily: FontEnum.felixTi.rawValue,
-                            color: context.titleColor,
+                            color: context.cocoaBean,
                           ),
                     ),
                   ),
@@ -67,8 +68,8 @@ class MobileView extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           child: BottomNavigationBar(
             currentIndex: appCubit.state,
-            selectedItemColor: context.titleColor,
-            backgroundColor: context.backgroundColor,
+            selectedItemColor: context.cocoaBean,
+            backgroundColor: context.pampas,
             onTap: (value) {
               appCubit.updateActiveButton(value);
             },
@@ -110,7 +111,7 @@ class MobileHomePage extends StatelessWidget {
         ),
         const Spacer(flex: 2),
         Card(
-          color: context.backgroundColor,
+          color: context.pampas,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
             child: Text(
@@ -124,7 +125,7 @@ class MobileHomePage extends StatelessWidget {
         ),
         const Spacer(flex: 1),
         Card(
-          color: context.backgroundColor,
+          color: context.pampas,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
             child: Text(
@@ -139,7 +140,7 @@ class MobileHomePage extends StatelessWidget {
         const Spacer(flex: 1),
         ElevatedButton(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(context.titleColor),
+            backgroundColor: MaterialStateProperty.all(context.cocoaBean),
           ),
           onPressed: () {
             appCubit.updateActiveButton(1);
@@ -151,7 +152,7 @@ class MobileHomePage extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .titleLarge
-                  ?.copyWith(color: context.backgroundColor, fontFamily: FontEnum.bodoni.rawValue, letterSpacing: 2),
+                  ?.copyWith(color: context.pampas, fontFamily: FontEnum.bodoni.rawValue, letterSpacing: 2),
             ),
           ),
         ),
@@ -220,14 +221,14 @@ class _MobileGamesPageState extends State<MobileGamesPage> {
                   Column(
                     children: [
                       Card(
-                        color: context.backgroundColor,
+                        color: context.pampas,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                           child: Text(
                             "CodeRiddle",
                             style: Theme.of(context).textTheme.titleMedium?.copyWith(
                                   fontFamily: FontEnum.bodoni.rawValue,
-                                  color: context.titleColor,
+                                  color: context.cocoaBean,
                                 ),
                           ),
                         ),
@@ -235,7 +236,7 @@ class _MobileGamesPageState extends State<MobileGamesPage> {
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.5,
                         child: Card(
-                          color: context.backgroundColor,
+                          color: context.pampas,
                           child: Padding(
                             padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                             child: Text(
@@ -243,7 +244,7 @@ class _MobileGamesPageState extends State<MobileGamesPage> {
                               textAlign: TextAlign.center,
                               style: Theme.of(context).textTheme.titleSmall?.copyWith(
                                     fontFamily: FontEnum.bodoni.rawValue,
-                                    color: context.titleColor,
+                                    color: context.cocoaBean,
                                   ),
                             ),
                           ),
@@ -251,7 +252,7 @@ class _MobileGamesPageState extends State<MobileGamesPage> {
                       ),
                       InkWell(
                         onTap: () {
-                          UrlLauncher._launchUrl("https://pub.dev/packages/url_launcher");
+                          UrlLauncherSingleton.launch("https://pub.dev/packages/url_launcher");
                         },
                         child: SizedBox(
                           width: 125,
@@ -263,14 +264,14 @@ class _MobileGamesPageState extends State<MobileGamesPage> {
                 ],
               ),
               Card(
-                color: context.backgroundColor,
+                color: context.pampas,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                   child: Text(
                     "We invite you to a world filled with unique puzzles and challenging questions. Coderiddle is designed for coding enthusiasts of all levels, catering to both beginners and experienced programmers. So, let's embark on an enchanting journey into the world of coding with Coderiddle! Push your boundaries, sharpen your intellect, and join in on the exciting adventure of enhancing your coding skills. Coderiddle awaits you, combining coding with puzzles!",
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          color: context.titleColor,
+                          color: context.cocoaBean,
                           fontFamily: FontEnum.bodoni.rawValue,
                         ),
                   ),
@@ -278,6 +279,9 @@ class _MobileGamesPageState extends State<MobileGamesPage> {
               ),
             ],
           ),
+        ),
+        const SizedBox(
+          height: 10,
         ),
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.8,
@@ -307,14 +311,14 @@ class _MobileGamesPageState extends State<MobileGamesPage> {
                   Column(
                     children: [
                       Card(
-                        color: context.backgroundColor,
+                        color: context.pampas,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                           child: Text(
                             "CodeRiddle",
                             style: Theme.of(context).textTheme.titleMedium?.copyWith(
                                   fontFamily: FontEnum.bodoni.rawValue,
-                                  color: context.titleColor,
+                                  color: context.cocoaBean,
                                 ),
                           ),
                         ),
@@ -322,7 +326,7 @@ class _MobileGamesPageState extends State<MobileGamesPage> {
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.5,
                         child: Card(
-                          color: context.backgroundColor,
+                          color: context.pampas,
                           child: Padding(
                             padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                             child: Text(
@@ -330,7 +334,7 @@ class _MobileGamesPageState extends State<MobileGamesPage> {
                               textAlign: TextAlign.center,
                               style: Theme.of(context).textTheme.titleSmall?.copyWith(
                                     fontFamily: FontEnum.bodoni.rawValue,
-                                    color: context.titleColor,
+                                    color: context.cocoaBean,
                                   ),
                             ),
                           ),
@@ -338,7 +342,7 @@ class _MobileGamesPageState extends State<MobileGamesPage> {
                       ),
                       InkWell(
                         onTap: () {
-                          UrlLauncher._launchUrl("https://pub.dev/packages/url_launcher");
+                          UrlLauncherSingleton.launch("https://pub.dev/packages/url_launcher");
                         },
                         child: SizedBox(
                           width: 125,
@@ -350,14 +354,14 @@ class _MobileGamesPageState extends State<MobileGamesPage> {
                 ],
               ),
               Card(
-                color: context.backgroundColor,
+                color: context.pampas,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                   child: Text(
                     "We invite you to a world filled with unique puzzles and challenging questions. Coderiddle is designed for coding enthusiasts of all levels, catering to both beginners and experienced programmers. So, let's embark on an enchanting journey into the world of coding with Coderiddle! Push your boundaries, sharpen your intellect, and join in on the exciting adventure of enhancing your coding skills. Coderiddle awaits you, combining coding with puzzles!",
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          color: context.titleColor,
+                          color: context.cocoaBean,
                           fontFamily: FontEnum.bodoni.rawValue,
                         ),
                   ),
@@ -365,31 +369,11 @@ class _MobileGamesPageState extends State<MobileGamesPage> {
               ),
             ],
           ),
-        )
+        ),
+        const SizedBox(
+          height: 20,
+        ),
       ],
-    );
-  }
-}
-
-class UrlLauncher {
-  static Future<void> _launchUrl(String getUrl) async {
-    final url = Uri.parse(getUrl);
-    if (!await launchUrl(url)) {
-      throw Exception('Could not launch $url');
-    }
-  }
-}
-
-class MobileAboutUsPage extends StatelessWidget {
-  const MobileAboutUsPage({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Card(
-      color: Colors.green,
-      child: Text("hi"),
     );
   }
 }

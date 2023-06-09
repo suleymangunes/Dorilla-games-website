@@ -1,5 +1,5 @@
 abstract class ProjectKeys {
-  static const appName = "DORİLLA GAMES";
+  static const appName = "DORILLA GAMES";
   static const home = "Home";
   static const games = "Games";
   static const aboutUs = "About Us";
@@ -19,4 +19,8 @@ abstract class ProjectKeys {
   static const game = "Game";
   static const tellMe = "Tell me about your project.";
   static const gmail = "dorillasoftware@gmail.com";
+  static const github = "github/suleymangunes";
+  static const playStore = "playstore/dorillagames";
+  static const youtube = "youtube/dorillagames";
+  static const linkedin = "linkedin/suleymangunes0";
 }
