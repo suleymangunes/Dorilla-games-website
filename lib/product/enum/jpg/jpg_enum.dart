@@ -1,12 +1,12 @@
-enum JpgEnum {
+enum ScreenEnum {
   about("about"),
-  games("game"),
+  games("games"),
   home("home"),
   ;
 
   final String value;
 
-  const JpgEnum(this.value);
+  const ScreenEnum(this.value);
 
-  String get rawValue => "assets/jpg/$value.jpg";
+  String get rawValue => "assets/jpg/$value.png";
 }
