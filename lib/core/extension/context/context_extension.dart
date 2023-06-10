@@ -18,4 +18,6 @@ extension StaticSize on BuildContext {
   double get smallImageHeigt => 125;
   double get appCardHeight => 55;
   double get appCardWidth => 220;
+  double get desktopBodyHeight => 500;
+  double get desktopLogoHeight => 280;
 }

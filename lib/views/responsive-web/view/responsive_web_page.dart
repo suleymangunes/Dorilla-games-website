@@ -17,13 +17,8 @@ class ResponsiveWebPage extends StatelessWidget {
             child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) {
                 if (constraints.maxWidth > 650) {
-                  // Büyük ekranlarda farklı bir görünüm
-                  return BlocProvider(
-                    create: (context) => PageCubit(),
-                    child: const DesktopView(),
-                  );
+                  return BlocProvider(create: (context) => PageCubit(), child: const DesktopView());
                 } else {
-                  // Mobil cihazlarda farklı bir görünüm
                   return BlocProvider(create: (context) => PageCubit(), child: const MobileView());
                 }
               },

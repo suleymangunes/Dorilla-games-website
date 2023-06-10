@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dorilla_games/core/extension/color/color_extension.dart';
 import 'package:dorilla_games/core/components/text/text_head_large_with_font.dart';
+import 'package:dorilla_games/core/service/url/url_launcher_singleton.dart';
 import 'package:dorilla_games/product/enum/flare/flare_enum.dart';
 import 'package:dorilla_games/product/enum/font/font_enum.dart';
 import 'package:dorilla_games/product/enum/image/image_enum.dart';
@@ -10,11 +11,11 @@ import 'package:dorilla_games/views/_products/widgets/text-button/about_text_but
 import 'package:dorilla_games/views/_products/widgets/text-button/games_text_button.dart';
 import 'package:dorilla_games/views/_products/widgets/text-button/home_text_button.dart';
 import 'package:dorilla_games/views/desktop/view-model/cubit/page_cubit.dart';
+import 'package:dorilla_games/views/desktop/view-model/get-body/get_body.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class DesktopView extends StatelessWidget {
   const DesktopView({super.key});
@@ -104,19 +105,6 @@ class DesktopView extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class GetBody {
-  const GetBody._();
-  static Widget get({required int bodyPageId}) {
-    if (bodyPageId == 1) {
-      return const GamesPage();
-    } else if (bodyPageId == 2) {
-      return const AboutUsPage();
-    } else {
-      return const HomePageBody();
-    }
   }
 }
 
@@ -603,7 +591,7 @@ class _GamesPageState extends State<GamesPage> {
                     const Spacer(flex: 1),
                     InkWell(
                       onTap: () {
-                        UrlLauncher._launchUrl("https://pub.dev/packages/url_launcher");
+                        UrlLauncherSingleton.launch("https://pub.dev/packages/url_launcher");
                       },
                       onHover: (value) {
                         setState(() {
@@ -688,7 +676,7 @@ class _GamesPageState extends State<GamesPage> {
                     const Spacer(flex: 1),
                     InkWell(
                       onTap: () {
-                        UrlLauncher._launchUrl("https://pub.dev/packages/url_launcher");
+                        UrlLauncherSingleton.launch("https://pub.dev/packages/url_launcher");
                       },
                       onHover: (value) {
                         setState(() {
@@ -710,103 +698,5 @@ class _GamesPageState extends State<GamesPage> {
         ),
       ],
     );
-  }
-}
-
-class UrlLauncher {
-  static Future<void> _launchUrl(String getUrl) async {
-    final url = Uri.parse(getUrl);
-    if (!await launchUrl(url)) {
-      throw Exception('Could not launch $url');
-    }
-  }
-}
-
-class HomePageBody extends StatelessWidget {
-  const HomePageBody({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final appCubit = context.watch<PageCubit>();
-    return Row(children: [
-      const Spacer(flex: 3),
-      SizedBox(
-        width: 280,
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Image.asset(ImageEnum.logo.rawValue),
-        ),
-      ),
-      const Spacer(flex: 15),
-      SizedBox(
-        width: MediaQuery.of(context).size.width * 0.5,
-        height: 500,
-        child: Padding(
-          padding: const EdgeInsets.all(25.0),
-          child: Column(
-            children: [
-              const Spacer(flex: 3),
-              Card(
-                color: context.pampas,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
-                  child: Text(
-                    ProjectKeys.welcomeTitle,
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                          color: context.cocoaBean,
-                          fontFamily: FontEnum.bodoni.rawValue,
-                          letterSpacing: 0.5,
-                        ),
-                  ),
-                ),
-              ),
-              const Spacer(flex: 1),
-              Card(
-                color: context.pampas,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
-                  child: Text(
-                    ProjectKeys.welcomeContent,
-                    textAlign: TextAlign.center,
-                    maxLines: 8,
-                    overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          // color: const Color.fromRGBO(174, 95, 42, 1),
-                          color: context.cocoaBean,
-                          fontFamily: FontEnum.bodoni.rawValue,
-                        ),
-                  ),
-                ),
-              ),
-              const Spacer(flex: 1),
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(context.cocoaBean),
-                ),
-                onPressed: () {
-                  appCubit.updateActiveButton(1);
-                },
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
-                  child: Text(
-                    ProjectKeys.getStarted,
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleLarge
-                        ?.copyWith(color: context.pampas, fontFamily: FontEnum.bodoni.rawValue, letterSpacing: 2),
-                  ),
-                ),
-              ),
-              const Spacer(flex: 4),
-            ],
-          ),
-        ),
-      ),
-      const Spacer(flex: 2),
-    ]);
   }
 }
