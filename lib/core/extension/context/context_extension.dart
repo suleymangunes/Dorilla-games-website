@@ -20,4 +20,6 @@ extension StaticSize on BuildContext {
   double get appCardWidth => 220;
   double get desktopBodyHeight => 500;
   double get desktopLogoHeight => 280;
+  double get carouselSliderWidth => 250;
+  double get carouselSliderHeight => 600;
 }

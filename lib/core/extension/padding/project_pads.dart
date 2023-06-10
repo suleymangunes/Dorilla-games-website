@@ -8,4 +8,5 @@ extension ProjectPads on BuildContext {
   EdgeInsets get allSmallPad => const EdgeInsets.all(8.0);
   EdgeInsets get desktopContentPad => const EdgeInsets.symmetric(vertical: 10, horizontal: 14);
   EdgeInsets get desktopLogoPad => const EdgeInsets.all(15.0);
+  EdgeInsets get desktopSliderPad => const EdgeInsets.all(15.0);
 }

@@ -1,3 +1,4 @@
+import 'package:dorilla_games/views/desktop/games/games_page.dart';
 import 'package:dorilla_games/views/desktop/home/home_page.dart';
 import 'package:dorilla_games/views/desktop/view/desktop_view.dart';
 import 'package:flutter/material.dart';
