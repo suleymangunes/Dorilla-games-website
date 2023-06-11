@@ -23,4 +23,5 @@ abstract class ProjectKeys {
   static const playStore = "playstore/dorillagames";
   static const youtube = "youtube/dorillagames";
   static const linkedin = "linkedin/suleymangunes0";
+  static const fillFields = "Please fill the required fields.";
 }

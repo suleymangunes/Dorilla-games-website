@@ -1,4 +1,4 @@
-import 'package:dorilla_games/core/extension/color/color_extension.dart';
+import 'package:dorilla_games/core/extension/context/context_extension.dart';
 import 'package:dorilla_games/product/enum/font/font_enum.dart';
 import 'package:flutter/material.dart';
 

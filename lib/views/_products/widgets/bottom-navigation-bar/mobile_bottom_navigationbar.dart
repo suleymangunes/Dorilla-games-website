@@ -1,4 +1,4 @@
-import 'package:dorilla_games/core/extension/color/color_extension.dart';
+import 'package:dorilla_games/core/extension/context/context_extension.dart';
 import 'package:dorilla_games/product/locale/project_keys.dart';
 import 'package:dorilla_games/views/desktop/view-model/cubit/page_cubit.dart';
 import 'package:flutter/material.dart';

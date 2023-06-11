@@ -1,5 +1,5 @@
 import 'package:dorilla_games/core/components/text/felix/large_title_text_cocoa_felix.dart';
-import 'package:dorilla_games/core/extension/color/color_extension.dart';
+import 'package:dorilla_games/core/extension/context/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class CardLargeTitle extends StatelessWidget {

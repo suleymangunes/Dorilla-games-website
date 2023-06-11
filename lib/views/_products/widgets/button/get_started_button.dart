@@ -1,4 +1,4 @@
-import 'package:dorilla_games/core/extension/color/color_extension.dart';
+import 'package:dorilla_games/core/extension/context/context_extension.dart';
 import 'package:dorilla_games/core/extension/padding/project_pads.dart';
 import 'package:dorilla_games/product/locale/project_keys.dart';
 import 'package:dorilla_games/product/widget/text/large_title_text_bodoni_pampas.dart';

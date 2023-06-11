@@ -1,6 +1,6 @@
 import 'package:dorilla_games/core/components/svg/small_svg_picture.dart';
 import 'package:dorilla_games/core/components/text/bodoni/small_title_text_cocoabean_bodoni.dart';
-import 'package:dorilla_games/core/extension/color/color_extension.dart';
+import 'package:dorilla_games/core/extension/context/context_extension.dart';
 import 'package:dorilla_games/core/extension/padding/project_pads.dart';
 import 'package:flutter/material.dart';
 

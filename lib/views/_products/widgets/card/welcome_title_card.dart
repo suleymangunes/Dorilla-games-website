@@ -1,5 +1,5 @@
 import 'package:dorilla_games/core/components/text/bodoni/small_headline_text_bodoni.dart';
-import 'package:dorilla_games/core/extension/color/color_extension.dart';
+import 'package:dorilla_games/core/extension/context/context_extension.dart';
 import 'package:dorilla_games/core/extension/padding/project_pads.dart';
 import 'package:dorilla_games/product/locale/project_keys.dart';
 import 'package:flutter/material.dart';

@@ -1,4 +1,4 @@
-import 'package:dorilla_games/core/extension/color/color_extension.dart';
+import 'package:dorilla_games/core/extension/context/context_extension.dart';
 import 'package:dorilla_games/core/extension/padding/project_pads.dart';
 import 'package:dorilla_games/product/enum/font/font_enum.dart';
 import 'package:dorilla_games/views/desktop/view-model/cubit/page_cubit.dart';
