@@ -60,9 +60,8 @@ Linter - ```flutter_lints: ^2.0.0```
 
 ### Mobile Design
 
-<img src="https://github.com/suleymangunes/Dorilla-games-website/assets/62201710/41b4533a-e025-44b9-94a4-302fb6ddb29c" width=200 hspace=20>
+<img src="https://github.com/suleymangunes/Dorilla-games-website/assets/62201710/e3d16439-58a7-4ba6-be5c-a8b7c6f00792" width=200 hspace=20>
 
 <img src="https://github.com/suleymangunes/Dorilla-games-website/assets/62201710/d251cb38-21e9-4ad4-b151-ee8e2879bde6" width=200>
 
-<img src="https://github.com/suleymangunes/Dorilla-games-website/assets/62201710/e3d16439-58a7-4ba6-be5c-a8b7c6f00792" width=200 hspace=20>
-
+<img src="https://github.com/suleymangunes/Dorilla-games-website/assets/62201710/41b4533a-e025-44b9-94a4-302fb6ddb29c" width=200 hspace=20>
