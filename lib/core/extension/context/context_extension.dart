@@ -22,8 +22,10 @@ extension StaticSize on BuildContext {
   double get smallImageHeigt => 125;
   double get appCardHeight => 55;
   double get appCardWidth => 220;
+  double get appBarWidth => 300;
   double get desktopBodyHeight => 500;
   double get desktopLogoHeight => 280;
+  double get appBarNameWidth => 280;
   double get carouselSliderWidth => 250;
   double get carouselSliderHeight => 600;
   double get svgSize => 60;
@@ -50,4 +52,8 @@ extension TextExtension on BuildContext {
         color: cocoaBean,
         fontFamily: FontEnum.bodoni.rawValue,
       );
+}
+
+extension ProjectPaddings on BuildContext {
+  EdgeInsets get topPadDesktop => EdgeInsets.all(width * 0.01);
 }
