@@ -12,6 +12,10 @@ abstract class ProjectKeys {
   static const stayConnected = "Stay Connected";
   static const contactMe = "Contact Me";
   static const send = "Send";
+  static const sending = "Sending...";
+  static const sended = "Sent";
+  static const error = "Error";
+
   static const name = "Name";
   static const email = "E-mail";
   static const web = "Web";

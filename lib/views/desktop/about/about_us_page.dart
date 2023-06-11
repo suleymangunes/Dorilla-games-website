@@ -1,6 +1,7 @@
 import 'package:dorilla_games/core/extension/context/context_extension.dart';
 import 'package:dorilla_games/core/extension/padding/project_pads.dart';
 import 'package:dorilla_games/views/desktop/about/about_and_contactme_area.dart';
+import 'package:dorilla_games/views/desktop/about/contact/view-model/email_sender_cubit.dart';
 import 'package:dorilla_games/views/desktop/about/contact_area.dart';
 import 'package:dorilla_games/views/desktop/view-model/cubit/select-service/select_service_cubit.dart';
 import 'package:flutter/material.dart';
@@ -24,12 +25,12 @@ class AboutUsPage extends StatelessWidget {
         child: SizedBox(
           width: context.widthToBeUsed,
           child: Row(
-            children: const [
-              Spacer(flex: 1),
-              AboutAndContactMeArea(),
-              Spacer(flex: 1),
-              ContactArea(),
-              Spacer(flex: 1),
+            children: [
+              const Spacer(flex: 1),
+              const AboutAndContactMeArea(),
+              const Spacer(flex: 1),
+              BlocProvider(create: (context) => EmailSenderCubit(), child: const ContactArea()),
+              const Spacer(flex: 1),
             ],
           ),
         ),

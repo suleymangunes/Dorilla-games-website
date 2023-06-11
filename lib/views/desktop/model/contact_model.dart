@@ -1,3 +1,5 @@
+import 'package:dorilla_games/product/locale/project_keys.dart';
+
 class ContactModel {
   String? name;
   String? email;
@@ -26,5 +28,20 @@ class ContactModel {
     data['app'] = app;
     data['game'] = game;
     return data;
+  }
+
+  String extractSubject(ContactModel contactModel) {
+    final List subjects = [];
+    if (contactModel.web ?? false) {
+      subjects.add(ProjectKeys.web);
+    }
+    if (contactModel.app ?? false) {
+      subjects.add(ProjectKeys.app);
+    }
+    if (contactModel.game ?? false) {
+      subjects.add(ProjectKeys.game);
+    }
+    final mySubjects = subjects.join(", ");
+    return mySubjects;
   }
 }

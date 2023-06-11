@@ -1,5 +1,13 @@
+import 'package:dorilla_games/views/_products/enum/service_status_enum.dart';
+import 'package:dorilla_games/views/_products/widgets/button/contact/error_button.dart';
+import 'package:dorilla_games/views/_products/widgets/button/contact/loadin_button.dart';
+import 'package:dorilla_games/views/_products/widgets/button/contact/send_button.dart';
+import 'package:dorilla_games/views/_products/widgets/button/contact/sent_button.dart';
+import 'package:dorilla_games/views/desktop/about/contact/view-model/email_sender_cubit.dart';
+import 'package:dorilla_games/views/desktop/about/contact/view-model/email_sender_state.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dorilla_games/core/components/card/card_title_large_text.dart';
-import 'package:dorilla_games/core/components/text/bodoni/large_title_text_bodoni.dart';
 import 'package:dorilla_games/core/extension/context/context_extension.dart';
 import 'package:dorilla_games/core/extension/padding/project_pads.dart';
 import 'package:dorilla_games/product/locale/project_keys.dart';
@@ -9,10 +17,6 @@ import 'package:dorilla_games/product/widget/svg/selectable_svg_web.dart';
 import 'package:dorilla_games/views/_products/widgets/textfield/text_field_for_mail.dart';
 import 'package:dorilla_games/views/_products/widgets/textfield/textfield_for_name.dart';
 import 'package:dorilla_games/views/_products/widgets/textfield/textfield_for_tell_me_about.dart';
-import 'package:dorilla_games/views/desktop/model/contact_model.dart';
-import 'package:dorilla_games/views/desktop/view-model/cubit/select-service/select_service_cubit.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ContactArea extends StatefulWidget {
   const ContactArea({
@@ -82,31 +86,23 @@ class _ContactAreaState extends State<ContactArea> {
             context.smallSizedbox,
             Align(
               alignment: Alignment.centerRight,
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(context.cocoaBean),
-                ),
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    final contactModel = ContactModel(
-                      name: _nameController.text,
-                      email: _emailController.text,
-                      about: _aboutController.text,
-                      web: context.read<IsSelectedWeb>().state,
-                      app: context.read<IsSelectedApp>().state,
-                      game: context.read<IsSelectedGame>().state,
-                    );
-                    print(contactModel.toJson());
+              child: BlocBuilder<EmailSenderCubit, IEmailSenderState>(
+                builder: (context, state) {
+                  switch (state.status) {
+                    case SenderStatus.initial:
+                      return SendButton(
+                          formKey: _formKey,
+                          nameController: _nameController,
+                          emailController: _emailController,
+                          aboutController: _aboutController);
+                    case SenderStatus.loading:
+                      return const LoadingButton();
+                    case SenderStatus.completed:
+                      return const SentButton();
+                    case SenderStatus.error:
+                      return const ErrorButton();
                   }
                 },
-                child: Padding(
-                  padding: context.smallTextPad,
-                  child: LargeTitleTexTBodoni(
-                    text: ProjectKeys.send,
-                    color: context.pampas,
-                    letterSpacing: 2,
-                  ),
-                ),
               ),
             ),
           ],
