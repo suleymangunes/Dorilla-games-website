@@ -18,7 +18,7 @@ class DesktopGamesContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Spacer(flex: 3),
+        const Spacer(flex: 4),
         SizedBox(
           height: context.carouselSliderHeight,
           width: context.carouselSliderWidth,

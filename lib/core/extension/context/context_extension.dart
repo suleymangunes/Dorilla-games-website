@@ -30,7 +30,7 @@ extension StaticSize on BuildContext {
   double get carouselSliderHeight => 600;
   double get svgSize => 60;
   double get svgSmallHeight => 20;
-  double get svgThirty => 20;
+  double get svgThirty => 30;
   double get svgSmallWidth => 25;
   int get maxlineTellme => 4;
 }
