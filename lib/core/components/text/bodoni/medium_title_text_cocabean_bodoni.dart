@@ -17,7 +17,7 @@ class MediumTitleTextCocoaBeanBodoni extends StatelessWidget {
       textAlign: textAlign,
       maxLines: maxLine,
       overflow: textOverflow,
-      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+      style: Theme.of(context).textTheme.titleSmall?.copyWith(
             fontFamily: FontEnum.bodoni.rawValue,
             color: context.cocoaBean,
             // fontWeight: FontWeight.bold,

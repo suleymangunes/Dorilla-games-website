@@ -11,7 +11,7 @@ class LargeTitleTexTBodoni extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+      style: Theme.of(context).textTheme.titleMedium?.copyWith(
             color: color,
             fontFamily: FontEnum.bodoni.rawValue,
             letterSpacing: letterSpacing,

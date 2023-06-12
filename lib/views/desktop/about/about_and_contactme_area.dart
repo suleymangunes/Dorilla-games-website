@@ -14,7 +14,7 @@ class AboutAndContactMeArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: context.halfWidth,
+      width: context.widthFourty,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

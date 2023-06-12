@@ -28,7 +28,7 @@ class AboutUsPage extends StatelessWidget {
             children: [
               const Spacer(flex: 1),
               const AboutAndContactMeArea(),
-              const Spacer(flex: 1),
+              const Spacer(flex: 3),
               BlocProvider(create: (context) => EmailSenderCubit(), child: const ContactArea()),
               const Spacer(flex: 1),
             ],

@@ -41,14 +41,14 @@ extension Sizedboxes on BuildContext {
 }
 
 extension ProjectColor on BuildContext {
-  Color get pampas => const Color.fromRGBO(241, 237, 234, 1);
+  Color get pampas => const Color.fromRGBO(241, 237, 234, 0.8);
   Color get pippin => const Color.fromARGB(255, 230, 226, 223);
 
   Color get cocoaBean => const Color.fromRGBO(67, 37, 23, 1);
 }
 
 extension TextExtension on BuildContext {
-  TextStyle? get hintStyleCustom => Theme.of(this).textTheme.titleMedium?.copyWith(
+  TextStyle? get hintStyleCustom => Theme.of(this).textTheme.titleSmall?.copyWith(
         color: cocoaBean,
         fontFamily: FontEnum.bodoni.rawValue,
       );

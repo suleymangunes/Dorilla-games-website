@@ -14,13 +14,13 @@ class DesktopWelcomeContent extends StatelessWidget {
       height: context.desktopBodyHeight,
       child: Column(
         children: const [
-          Spacer(flex: 3),
+          Spacer(flex: 6),
           DesktopWelcomeTitleCard(),
           Spacer(flex: 1),
           DesktopWelcomeContentCard(),
           Spacer(flex: 1),
           GetStartedButton(),
-          Spacer(flex: 4),
+          Spacer(flex: 6),
         ],
       ),
     );

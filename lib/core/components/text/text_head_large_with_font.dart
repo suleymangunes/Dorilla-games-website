@@ -10,7 +10,7 @@ class TextHeadlineSmallWithFont extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+      style: Theme.of(context).textTheme.titleLarge?.copyWith(
             fontFamily: FontEnum.felixTi.rawValue,
             color: context.cocoaBean,
             letterSpacing: 1.5,

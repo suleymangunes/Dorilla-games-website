@@ -38,13 +38,13 @@ class DesktopGamesContent extends StatelessWidget {
             padding: context.desktopSliderPad,
             child: Column(
               children: [
-                const Spacer(flex: 3),
+                const Spacer(flex: 5),
                 GamesTitleCard(appName: appName),
                 const Spacer(flex: 1),
                 GamesContentCard(appContent: appContent),
                 const Spacer(flex: 1),
                 DynamicClickablePlayStore(url: url),
-                const Spacer(flex: 4),
+                const Spacer(flex: 7),
               ],
             ),
           ),

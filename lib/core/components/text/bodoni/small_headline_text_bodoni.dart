@@ -15,7 +15,7 @@ class SmallHeadlineTextBodoni extends StatelessWidget {
       text,
       textAlign: textAlign,
       overflow: textOverflow,
-      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+      style: Theme.of(context).textTheme.titleLarge?.copyWith(
             color: context.cocoaBean,
             fontFamily: FontEnum.bodoni.rawValue,
             letterSpacing: letterSpacing,
