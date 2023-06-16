@@ -1,12 +1,14 @@
-# Dorilla Games
+# Dorilla Games Responsive Web With Flutter
 
 Dorilla Games brings together technology and entertainment by crafting creative mobile applications, games, and websites, providing unique and immersive experiences for both clients and its own projects.
 
 Dorilla Games' website and application are built using Flutter (a powerful framework for cross-platform mobile and web development) with responsive design.
 
-<img src="https://github.com/suleymangunes/Dorilla-games-website/assets/62201710/b496d28e-f577-4989-ba26-b25df9203d57" width=1000>
-
 Website link: https://suleymangunes.github.io/DorillaGames/#/
+
+Web build: https://github.com/suleymangunes/DorillaGames
+
+<img src="https://github.com/suleymangunes/Dorilla-games-website/assets/62201710/b496d28e-f577-4989-ba26-b25df9203d57" width=1000>
 
 ### Application Features
 
